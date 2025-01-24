@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "A minter and protocol for inscriptions on Junkcoin",
   "main": "junkscriptions.js",
-  "author": "blackluv",
+  "author": "Junkcoin-Foundation",
   "license": "MIT",
+  "homepage": "https://junk-coin.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Junkcoin-Foundation/junkscriptions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Junkcoin-Foundation/junkscriptions/issues"
+  },
   "bin": {
     "junkscriptions": "junkscriptions.js"
   },
