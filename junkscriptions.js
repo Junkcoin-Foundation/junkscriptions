@@ -318,22 +318,17 @@ async function junk20DeployNew() {
     }
 
     const wallet = JSON.parse(fs.readFileSync(WALLET_PATH))
-    const protocol = 'junk-20'
-    const operation = 'deploy'
-    const data = {
+    const data = JSON.stringify({
+        p: 'junk-20',
+        op: 'deploy',
         tick: tick,
-        max: max,
-        lim: lim
-    }
+        max: max.toString(),
+        lim: lim.toString()
+    })
 
     const contentType = 'application/json'
-    const hexData = Buffer.from(JSON.stringify({
-        p: protocol,
-        op: operation,
-        ...data
-    })).toString('hex')
-
-    await inscribe(wallet, address, contentType, hexData)
+    const txs = await inscribe(wallet, address, contentType, Buffer.from(data))
+    await broadcastAll(txs, true)
 }
 
 async function junk20MintNew() {
@@ -352,24 +347,18 @@ async function junk20MintNew() {
 
     console.log(`Minting ${amt} ${tick} tokens, repeating ${repeat} times...`)
     const wallet = JSON.parse(fs.readFileSync(WALLET_PATH))
-    const protocol = 'junk-20'
-    const operation = 'mint'
 
     for (let i = 0; i < repeat; i++) {
         console.log(`\nMint operation ${i + 1} of ${repeat}:`)
-        const data = {
+        const data = JSON.stringify({
+            p: 'junk-20',
+            op: 'mint',
             tick: tick,
-            amt: amt
-        }
+            amt: amt.toString()
+        })
 
         const contentType = 'application/json'
-        const hexData = Buffer.from(JSON.stringify({
-            p: protocol,
-            op: operation,
-            ...data
-        })).toString('hex')
-
-        const txs = await inscribe(wallet, address, contentType, hexData)
+        const txs = await inscribe(wallet, address, contentType, Buffer.from(data))
         console.log('Broadcasting transactions...')
         await broadcastAll(txs, true)
         console.log('Mint transaction completed.')
@@ -395,22 +384,18 @@ async function junk20TransferNew() {
     }
 
     const wallet = JSON.parse(fs.readFileSync(WALLET_PATH))
-    const protocol = 'junk-20'
-    const operation = 'transfer'
-    const data = {
+    const data = JSON.stringify({
+        p: 'junk-20',
+        op: 'transfer',
         tick: tick,
-        amt: amt
-    }
+        amt: amt.toString()
+    })
 
     const contentType = 'application/json'
-    const hexData = Buffer.from(JSON.stringify({
-        p: protocol,
-        op: operation,
-        ...data
-    })).toString('hex')
-
-    await inscribe(wallet, address, contentType, hexData)
+    const txs = await inscribe(wallet, address, contentType, Buffer.from(data))
+    await broadcastAll(txs, true)
 }
+
 
 async function broadcastAll(txs, retry) {
 	for (let i = 0; i < txs.length; i++) {
