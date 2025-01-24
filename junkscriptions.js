@@ -322,8 +322,8 @@ async function junk20DeployNew() {
         p: 'junk-20',
         op: 'deploy',
         tick: tick,
-        max: max,
-        lim: lim
+        max: max.toString(),
+        lim: lim.toString()
     })
 
     const contentType = 'application/json'
@@ -354,7 +354,7 @@ async function junk20MintNew() {
             p: 'junk-20',
             op: 'mint',
             tick: tick,
-            amt: amt
+            amt: amt.toString()
         })
 
         const contentType = 'application/json'
@@ -388,13 +388,14 @@ async function junk20TransferNew() {
         p: 'junk-20',
         op: 'transfer',
         tick: tick,
-        amt: amt
+        amt: amt.toString()
     })
 
     const contentType = 'application/json'
     const txs = await inscribe(wallet, address, contentType, Buffer.from(data))
     await broadcastAll(txs, true)
 }
+
 
 async function broadcastAll(txs, retry) {
 	for (let i = 0; i < txs.length; i++) {
