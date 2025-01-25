@@ -746,8 +746,8 @@ function showHelp() {
 
     const examples = [
         ['node . wallet new', 'Create new wallet'],
-        ['node . junk-20 deploy JKCaddress SAIL 1000000 100', 'Deploy SAIL token'],
-        ['node . junk-20 mint JKCaddress SAIL 100 10', 'Mint SAIL tokens 10 times'],
+        ['node . junk-20 deploy JKCaddress sail 1000000 100', 'Deploy sail token'],
+        ['node . junk-20 mint JKCaddress sail 100 10', 'Mint sail tokens 10 times'],
         ['node . mint JKCaddress ./junk.png', 'Inscribe image file'],
         ['node . mint-junkmap JKCaddress 1 100', 'Mint junkmap from 1 to 100']
     ];
