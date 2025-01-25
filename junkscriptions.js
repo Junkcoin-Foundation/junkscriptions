@@ -370,6 +370,7 @@ async function junk20MintNew() {
     console.log('\nAll mint operations completed successfully!')
 }
 
+
 async function junk20TransferNew() {
     if (process.argv.length < 7) {
         throw new Error('Usage: junk-20 transfer <address> <tick> <amt>')

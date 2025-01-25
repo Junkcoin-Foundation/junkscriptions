@@ -75,7 +75,7 @@ Transaction.FEE_SECURITY_MARGIN = 15;
 // Dogecoin has 100000000000 * 1e8 coins in satoshis //10000000
 // This number can be found at (https://github.com/dogecoin/dogecoin/blob/0b46a40ed125d7bf4b5a485b91350bc8bdc48fc8/src/amount.h)
 // This is the largest possible number that bn.js can accept; Anything larger will cause an assert error
-Transaction.MAX_MONEY =  9007199254740991;
+Transaction.MAX_MONEY =  54000000 * 100000000;
 
 // nlocktime limit to be considered block height rather than a timestamp
 Transaction.NLOCKTIME_BLOCKHEIGHT_LIMIT = 5e8;
@@ -85,7 +85,7 @@ Transaction.NLOCKTIME_MAX_VALUE = 4294967295;
 
 // Value used for fee estimation (satoshis per kilobyte)
 // https://github.com/dogecoin/dogecoin/blob/0b46a40ed125d7bf4b5a485b91350bc8bdc48fc8/doc/man/dogecoin-qt.1
-Transaction.FEE_PER_KB = 100000000; // default fees is 1 DOGE
+Transaction.FEE_PER_KB = 100000; // default fees is 1 DOGE
 
 // Safe upper bound for change address script size in bytes
 Transaction.CHANGE_OUTPUT_MAX_SIZE = 20 + 4 + 34 + 4;
