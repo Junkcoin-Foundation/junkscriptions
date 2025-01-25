@@ -96,7 +96,7 @@ node . wallet sync
 # Check balance
 node . wallet balance
 
-# Show wallet info
+# Show wallet address & privatekey
 node . wallet show
 
 # Split UTXOs
@@ -132,11 +132,11 @@ node . junk-20 transfer <address> <tick> <amt>
 # Create wallet
 node . wallet new
 
-# Deploy SAIL token
-node . junk-20 deploy JKCaddress SAIL 1000000 100
+# Deploy sail token
+node . junk-20 deploy JKCaddress sail 1000000 100
 
-# Mint SAIL tokens 10 times
-node . junk-20 mint JKCaddress SAIL 100 10
+# Mint sail tokens 10 times
+node . junk-20 mint JKCaddress sail 100 10
 
 # Inscribe image
 node . mint JKCaddress ./junk.png
